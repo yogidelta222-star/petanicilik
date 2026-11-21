@@ -1,0 +1,8 @@
+# Hanya berkas game yang tayang; bahan kerja & rahasia tidak ikut
+tools/
+bahan/
+klien/
+suara/asli/
+dengar/
+.venv/
+*.md
