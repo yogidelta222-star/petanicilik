@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="only light">
+  <meta name="theme-color" content="#7cc45a">
+  <title>Petani Cilik — Berkebun Apel Bersama Nenek</title>
+  <meta name="description" content="Game edukasi PAUD: bantu Nenek menanam apel dari bibit sampai panen bersama Justin.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Panggung 16:9 (1600 × 900) yang diperbesar/diperkecil mengikuti layar -->
+  <div id="bingkai">
+    <main id="panggung" aria-live="polite"></main>
+  </div>
+
+  <!-- Muncul bila HP dipegang tegak -->
+  <div id="putarHP" hidden>
+    <div class="hp-ikon" aria-hidden="true"><span>📱</span></div>
+    <p>Putar HP-mu ke posisi tidur, ya!</p>
+  </div>
+
+  <script src="suara/daftar.js"></script>
+  <script src="data.js"></script>
+  <script src="gambar.js"></script>
+  <script src="permainan.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

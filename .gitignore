@@ -1,0 +1,8 @@
+# Rahasia & berkas kerja
+tools/.elevenlabs-key
+suara/*.tmp
+__pycache__/
+bahan/
+suara/asli/
+dengar/
+.venv/

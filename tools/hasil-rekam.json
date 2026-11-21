@@ -1,0 +1,482 @@
+{
+ "nenek|Oh, Justin!": {
+  "cara": "v3 #1",
+  "ujung": -57.6,
+  "cocok": 1.0,
+  "dengar": "Oh, Justin!"
+ },
+ "justin|Hore, bibitnya sudah berhasil ditanam!": {
+  "cara": "v3 #4 +dihaluskan",
+  "ujung": -34.4,
+  "cocok": 1.0,
+  "dengar": "Hore, bibitnya sudah berhasil ditanam."
+ },
+ "justin|Ternyata, surat itu dari Nenek!": {
+  "cara": "v3 #1",
+  "ujung": -73.5,
+  "cocok": 1.0,
+  "dengar": "Ternyata surat itu dari Nenek."
+ },
+ "justin|Nenek mengundang kami berkunjung ke pertaniannya, sekaligus menghabiskan waktu liburan bersama di sana.": {
+  "cara": "v3 #1",
+  "ujung": -52.6,
+  "cocok": 1.0,
+  "dengar": "Nenek mengundang kami berkunjung ke pertaniannya, sekaligus menghabiskan waktu liburan bersama di sana."
+ },
+ "justin|Pada suatu hari, aku, Ayah, dan Ibu sedang berkumpul di ruang keluarga.": {
+  "cara": "v3 #2",
+  "ujung": -44.2,
+  "cocok": 1.0,
+  "dengar": "Pada suatu hari, aku, ayah, dan ibu sedang berkumpul di ruang keluarga."
+ },
+ "justin|Tiba-tiba, terdengar suara tukang pos mengantarkan surat.": {
+  "cara": "v3 #2",
+  "ujung": -61.6,
+  "cocok": 0.88,
+  "dengar": "Tiba-tiba terdenyar suara tukang pos mengantarkan surat."
+ },
+ "justin|Ibu pun segera mengambilnya.": {
+  "cara": "v3 #3",
+  "ujung": -38.4,
+  "cocok": 1.0,
+  "dengar": "Ibu pun segera mengambilnya."
+ },
+ "justin|Kemudian, kami pergi naik bus ke pertanian Nenek.": {
+  "cara": "v3 #1",
+  "ujung": -58.4,
+  "cocok": 0.88,
+  "dengar": "Kemudian, kami pergi naik bas ke pertanian nenek."
+ },
+ "nenek|Bagaimana perjalananmu bersama Ibu dan Ayah?": {
+  "cara": "v3 #1",
+  "ujung": -40.9,
+  "cocok": 1.0,
+  "dengar": "Bagaimana perjalananmu bersama ibu dan ayah?"
+ },
+ "justin|Perjalanan kami menyenangkan, Nek!": {
+  "cara": "v3 #1",
+  "ujung": -58.3,
+  "cocok": 1.0,
+  "dengar": "Perjalanan kami menyenangkan, Nek."
+ },
+ "nenek|Akhirnya kamu datang juga.": {
+  "cara": "v3 #2",
+  "ujung": -39.3,
+  "cocok": 1.0,
+  "dengar": "Akhirnya kamu datang juga."
+ },
+ "nenek|Bagaimana kalau kamu membantu Nenek menanamnya?": {
+  "cara": "v3 #1",
+  "ujung": -60.3,
+  "cocok": 1.0,
+  "dengar": "Bagaimana kalau kamu membantu nenek menanamnya?"
+ },
+ "nenek|Nenek juga senang kalian datang.": {
+  "cara": "v3 #2",
+  "ujung": -49.2,
+  "cocok": 1.0,
+  "dengar": "Nenek juga senang kalian datang."
+ },
+ "justin|Aku senang sekali bisa berlibur di sini.": {
+  "cara": "v3 #3",
+  "ujung": -55.6,
+  "cocok": 1.0,
+  "dengar": "Aku senang sekali bisa berlibur di sini."
+ },
+ "justin|Aku mau membantu.": {
+  "cara": "v3 #1",
+  "ujung": -39.5,
+  "cocok": 1.0,
+  "dengar": "Aku mau membantu."
+ },
+ "justin|Apa yang harus aku lakukan?": {
+  "cara": "v3 #1",
+  "ujung": -51.6,
+  "cocok": 1.0,
+  "dengar": "Apa yang harus aku lakukan?"
+ },
+ "justin|Tentu saja, Nek!": {
+  "cara": "v3 #3",
+  "ujung": -78.2,
+  "cocok": 1.0,
+  "dengar": "Tentu saja, Nek."
+ },
+ "nenek|Kebetulan, Nenek ingin menanam pohon apel di pertanian ini.": {
+  "cara": "v3 #5",
+  "ujung": -42.6,
+  "cocok": 0.89,
+  "dengar": "Kebetulan, Mene ingin menanam pohon apel di pertanian ini."
+ },
+ "nenek|Ayo, kita mulai!": {
+  "cara": "v3 #2",
+  "ujung": -71.2,
+  "cocok": 1.0,
+  "dengar": "Ayo kita mulai."
+ },
+ "nenek|Ayo, masukkan bibit ke dalam lubang, dan hitunglah bibitnya!": {
+  "cara": "v3 #2",
+  "ujung": -46.2,
+  "cocok": 1.0,
+  "dengar": "Ayo, masukkan bibit ke dalam lubang dan hitunglah bibitnya."
+ },
+ "nenek|Ayo, kita siapkan bibit dan mulai menanam bersama!": {
+  "cara": "v3 #5 +dihaluskan",
+  "ujung": -38.0,
+  "cocok": 1.0,
+  "dengar": "Ayo, kita siapkan bibit dan mulai menanam bersama."
+ },
+ "justin|Hore, level baru!": {
+  "cara": "v3 #5 +dihaluskan",
+  "ujung": -33.2,
+  "cocok": 1.0,
+  "dengar": "Hore, level baru!"
+ },
+ "justin|Tiga!": {
+  "cara": "v3 #1",
+  "ujung": -70.6,
+  "cocok": 1.0,
+  "dengar": "Tiga."
+ },
+ "justin|Satu!": {
+  "cara": "v3 #2",
+  "ujung": -47.9,
+  "cocok": 1.0,
+  "dengar": "Satu"
+ },
+ "justin|Dua!": {
+  "cara": "v3 #2",
+  "ujung": -50.0,
+  "cocok": 1.0,
+  "dengar": "Dua"
+ },
+ "nenek|Putar HP-mu ke posisi tidur, ya!": {
+  "cara": "v3 #2 +dihaluskan",
+  "ujung": -27.0,
+  "cocok": 1.0,
+  "dengar": "Putar HP-mu ke posisi tidur ya."
+ },
+ "justin|Empat!": {
+  "cara": "v3 #1",
+  "ujung": -38.5,
+  "cocok": 1.0,
+  "dengar": "Empat"
+ },
+ "nenek|Ayo, pilih pupuk mana yang digunakan untuk tanaman ini.": {
+  "cara": "v3 #2",
+  "ujung": -60.7,
+  "cocok": 1.0,
+  "dengar": "Ayo, pilih pupuk mana yang digunakan untuk tanaman ini."
+ },
+ "nenek|Manakah pupuk untuk tanaman?": {
+  "cara": "v3 #2",
+  "ujung": -58.1,
+  "cocok": 1.0,
+  "dengar": "Manakah pupuk untuk tanaman?"
+ },
+ "justin|Lima!": {
+  "cara": "v3 #3",
+  "ujung": -50.8,
+  "cocok": 1.0,
+  "dengar": "lima"
+ },
+ "nenek|Coba pilih yang lain, ya!": {
+  "cara": "v3 #1",
+  "ujung": -57.2,
+  "cocok": 1.0,
+  "dengar": "Coba pilih yang lain ya."
+ },
+ "nenek|Betul sekali!": {
+  "cara": "v3 #1",
+  "ujung": -53.9,
+  "cocok": 1.0,
+  "dengar": "Betul sekali."
+ },
+ "nenek|Itu pupuk untuk tanaman.": {
+  "cara": "v3 #1",
+  "ujung": -57.1,
+  "cocok": 1.0,
+  "dengar": "Itu pupuk untuk tanaman."
+ },
+ "nenek|Hmm, itu tepung.": {
+  "cara": "v3 #2",
+  "ujung": -71.2,
+  "cocok": 1.0,
+  "dengar": "Hmm, itu tepung"
+ },
+ "nenek|Hmm, itu pakan ayam.": {
+  "cara": "v3 #4",
+  "ujung": -40.1,
+  "cocok": 0.86,
+  "dengar": "Itu pakan ayam."
+ },
+ "justin|Hore, pupuk yang tepat sudah berhasil dipilih!": {
+  "cara": "v3 #1",
+  "ujung": -77.8,
+  "cocok": 0.86,
+  "dengar": "Hurry, pupuk yang tepat sudah berhasil dipilih."
+ },
+ "justin|Yuk, lanjut ke level berikutnya!": {
+  "cara": "v3 #1",
+  "ujung": -42.3,
+  "cocok": 1.0,
+  "dengar": "Yuk lanjut ke level berikutnya."
+ },
+ "nenek|Bibit sudah ditanam, dan pupuk juga sudah dipilih.": {
+  "cara": "v3 #1",
+  "ujung": -41.0,
+  "cocok": 1.0,
+  "dengar": "Bibit sudah ditanam dan pupuk juga sudah dipilih."
+ },
+ "nenek|Sekarang, tanaman perlu disiram agar bisa tumbuh dengan baik.": {
+  "cara": "v3 #1",
+  "ujung": -40.8,
+  "cocok": 1.0,
+  "dengar": "Sekarang, tanaman perlu disiram agar bisa tumbuh dengan baik."
+ },
+ "nenek|Wah, pintar sekali!": {
+  "cara": "v3 #2",
+  "ujung": -70.3,
+  "cocok": 1.0,
+  "dengar": "Wah pintar sekali."
+ },
+ "nenek|Yuk, bantu Nenek menyusun puzzle teko penyiraman terlebih dahulu!": {
+  "cara": "v3 #2",
+  "ujung": -40.8,
+  "cocok": 0.89,
+  "dengar": "Yuk, bantu Nemek menyusun puzzle teko penyiraman terlebih dahulu."
+ },
+ "justin|Hore, teko penyiraman sudah tersusun!": {
+  "cara": "v3 #2",
+  "ujung": -80.1,
+  "cocok": 1.0,
+  "dengar": "Hore, teko penyiraman sudah tersusun."
+ },
+ "nenek|Tapi, teko penyiraman Nenek belum tersusun.": {
+  "cara": "v3 #3",
+  "ujung": -51.7,
+  "cocok": 1.0,
+  "dengar": "Tapi teko penyiraman nenek belum tersusun."
+ },
+ "nenek|Yuk, kita kenali bagian-bagian tanaman.": {
+  "cara": "v3 #1",
+  "ujung": -67.4,
+  "cocok": 1.0,
+  "dengar": "Yuk kita kenali bagian-bagian tanaman."
+ },
+ "nenek|Ada akar, batang, daun, bunga, dan buah.": {
+  "cara": "v3 #1",
+  "ujung": -40.1,
+  "cocok": 1.0,
+  "dengar": "Ada akar, batang, daun, bunga dan buah."
+ },
+ "nenek|Ini akar.": {
+  "cara": "v3 #1",
+  "ujung": -75.5,
+  "cocok": 1.0,
+  "dengar": "Ini akar."
+ },
+ "nenek|Ini batang.": {
+  "cara": "v3 #1",
+  "ujung": -46.5,
+  "cocok": 1.0,
+  "dengar": "Ini batang."
+ },
+ "nenek|Ini daun.": {
+  "cara": "v3 #2",
+  "ujung": -69.4,
+  "cocok": 1.0,
+  "dengar": "Ini daun."
+ },
+ "nenek|Wah, tanaman di kebun sudah mulai tumbuh!": {
+  "cara": "v3 #6",
+  "ujung": -43.5,
+  "cocok": 1.0,
+  "dengar": "Wah, tanaman di kebun sudah mulai tumbuh."
+ },
+ "nenek|Cocokkan gambarnya dengan tempat yang benar, ya!": {
+  "cara": "v3 #1 +dihaluskan",
+  "ujung": -37.7,
+  "cocok": 1.0,
+  "dengar": "Cocokkan gambarnya dengan tempat yang benar ya."
+ },
+ "nenek|Hmm, belum tepat.": {
+  "cara": "v3 #2",
+  "ujung": -61.8,
+  "cocok": 1.0,
+  "dengar": "Hmm belum tepat."
+ },
+ "nenek|Coba tempat yang lain, ya!": {
+  "cara": "v3 #1",
+  "ujung": -55.2,
+  "cocok": 1.0,
+  "dengar": "Coba tempat yang lain ya."
+ },
+ "nenek|Ini bunga.": {
+  "cara": "v3 #6",
+  "ujung": -40.5,
+  "cocok": 1.0,
+  "dengar": "Ini bunga."
+ },
+ "nenek|Ini buah.": {
+  "cara": "v3 #5",
+  "ujung": -46.0,
+  "cocok": 1.0,
+  "dengar": "Ini buah."
+ },
+ "nenek|Wah, tanaman di kebun sudah tumbuh dengan baik, dan sekarang buahnya mulai bermunculan!": {
+  "cara": "v3 #1",
+  "ujung": -61.2,
+  "cocok": 1.0,
+  "dengar": "Wah, tanaman di kebun sudah tumbuh dengan baik. Dan sekarang buahnya mulai bermunculan."
+ },
+ "justin|Yuk, lanjutkan petualangan kita!": {
+  "cara": "v3 #3",
+  "ujung": -56.1,
+  "cocok": 1.0,
+  "dengar": "Yuk, lanjutkan petualangan kita."
+ },
+ "justin|Hore, hebat sekali!": {
+  "cara": "v3 #4",
+  "ujung": -77.1,
+  "cocok": 1.0,
+  "dengar": "Hore, hebat sekali."
+ },
+ "justin|Apel ini sudah matang!": {
+  "cara": "v3 #1",
+  "ujung": -43.3,
+  "cocok": 1.0,
+  "dengar": "Apel ini sudah matang."
+ },
+ "nenek|Tapi, tidak semua buah sudah siap dipanen.": {
+  "cara": "v3 #3",
+  "ujung": -42.7,
+  "cocok": 0.86,
+  "dengar": "Tapi, tidak semua buah sudah siap dipanem."
+ },
+ "nenek|Cari apel yang merah, ya!": {
+  "cara": "v3 #1",
+  "ujung": -38.3,
+  "cocok": 1.0,
+  "dengar": "Cari apel yang merah ya."
+ },
+ "nenek|Apel itu masih hijau, belum matang.": {
+  "cara": "v3 #1",
+  "ujung": -41.0,
+  "cocok": 1.0,
+  "dengar": "Apel itu masih hijau, belum matang."
+ },
+ "nenek|Semua buah yang matang berhasil dipanen!": {
+  "cara": "v3 #1",
+  "ujung": -39.0,
+  "cocok": 1.0,
+  "dengar": "Semua buah yang matang berhasil dipanen."
+ },
+ "nenek|Yuk, bantu Nenek mencari dan memetik buah yang sudah matang.": {
+  "cara": "v3 #4 +dihaluskan",
+  "ujung": -32.3,
+  "cocok": 1.0,
+  "dengar": "Yuk, bantu nenek mencari dan memetik buah yang sudah matang."
+ },
+ "nenek|Masukkan ke dalam keranjang, ya!": {
+  "cara": "v3 #5",
+  "ujung": -43.3,
+  "cocok": 1.0,
+  "dengar": "Masukkan ke dalam keranjang ya."
+ },
+ "nenek|Wah, keranjang kita sudah penuh dengan buah-buahan segar.": {
+  "cara": "v3 #3",
+  "ujung": -39.4,
+  "cocok": 1.0,
+  "dengar": "Wah, keranjang kita sudah penuh dengan buah-buahan segar."
+ },
+ "nenek|Wah, Justin!": {
+  "cara": "v3 #1",
+  "ujung": -47.7,
+  "cocok": 1.0,
+  "dengar": "Wah, Justin!"
+ },
+ "nenek|Terima kasih sudah membantu Nenek merawat kebun.": {
+  "cara": "v3 #3",
+  "ujung": -78.0,
+  "cocok": 1.0,
+  "dengar": "Terima kasih sudah membantu nenek merawat kebun."
+ },
+ "nenek|Horeee!": {
+  "cara": "v3 #4",
+  "ujung": -66.5,
+  "cocok": 0.0,
+  "dengar": "Hore!"
+ },
+ "justin|Aku juga senang sekali, Nek!": {
+  "cara": "v3 #2",
+  "ujung": -74.9,
+  "cocok": 1.0,
+  "dengar": "Aku juga senang sekali, Nek."
+ },
+ "nenek|Terima kasih sudah membantu Nenek hari ini.": {
+  "cara": "v3 #6",
+  "ujung": -53.4,
+  "cocok": 1.0,
+  "dengar": "Terima kasih sudah membantu nenek hari ini."
+ },
+ "nenek|Lihatlah, bibit sudah ditanam, tanaman sudah dirawat, dan buah juga berhasil dipanen.": {
+  "cara": "v3 #6",
+  "ujung": -77.1,
+  "cocok": 1.0,
+  "dengar": "Lihatlah, bibit sudah ditanam, tanaman sudah dirawat, dan buah juga berhasil dipanen."
+ },
+ "nenek|Nenek senang sekali kamu mau belajar dan membantu Nenek di pertanian!": {
+  "cara": "v3 #5",
+  "ujung": -39.6,
+  "cocok": 1.0,
+  "dengar": "Nenek senang sekali kamu mau belajar dan membantu nenek di pertanian."
+ },
+ "justin|Aku jadi tahu cara menanam bibit, memilih pupuk, mengenal bagian-bagian tanaman, dan memanen buah.": {
+  "cara": "v3 #1",
+  "ujung": -79.6,
+  "cocok": 1.0,
+  "dengar": "Aku jadi tahu cara menanam bibit, memilih pupuk, mengenal bagian-bagian tanaman, dan memanen buah."
+ },
+ "nenek|Nah, sekarang mari kita nikmati hasil panen bersama.": {
+  "cara": "v3 #1",
+  "ujung": -56.7,
+  "cocok": 1.0,
+  "dengar": "Nah, sekarang mari kita nikmati hasil panen bersama."
+ },
+ "nenek|Terima kasih sudah menjadi petani cilik yang hebat!": {
+  "cara": "v3 #1",
+  "ujung": -62.5,
+  "cocok": 1.0,
+  "dengar": "Terima kasih sudah menjadi petani cilik yang hebat."
+ },
+ "nenek|Wah, pintar sekali cucu Nenek!": {
+  "cara": "v3 #2",
+  "ujung": -39.4,
+  "cocok": 1.0,
+  "dengar": "Wah, pintar sekali cucu nenek."
+ },
+ "justin|Sampai jumpa lagi!": {
+  "cara": "v3 #1",
+  "ujung": -54.1,
+  "cocok": 1.0,
+  "dengar": "Sampai jumpa lagi"
+ },
+ "justin|Hari ini aku belajar banyak hal.": {
+  "cara": "v3 #3 +dihaluskan",
+  "ujung": -27.7,
+  "cocok": 1.0,
+  "dengar": "Hari ini aku belajar banyak hal."
+ },
+ "justin|Horeee!": {
+  "cara": "v3 #1",
+  "ujung": -82.7,
+  "cocok": 0.0,
+  "dengar": "Hooray!"
+ },
+ "justin|Petualangan di pertanian Nenek sangat menyenangkan!": {
+  "cara": "v3 #3 +dihaluskan",
+  "ujung": -27.6,
+  "cocok": 1.0,
+  "dengar": "Petualangan di pertanian nenek sangat menyenangkan."
+ }
+}
