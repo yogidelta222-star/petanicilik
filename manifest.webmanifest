@@ -1,0 +1,17 @@
+{
+  "name": "Petani Cilik — Berkebun Apel Bersama Nenek",
+  "short_name": "Petani Cilik",
+  "description": "Game edukasi PAUD: bantu Nenek menanam apel dari bibit sampai panen bersama Justin.",
+  "lang": "id",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#2c3f22",
+  "theme_color": "#7cc45a",
+  "icons": [
+    { "src": "gambar/ikon/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "gambar/ikon/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "gambar/ikon/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
