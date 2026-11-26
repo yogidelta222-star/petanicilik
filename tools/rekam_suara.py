@@ -48,11 +48,14 @@ MODEL_WHISPER = r'C:/Users/ACER/AppData/Local/Temp/claude/dade6b2694032f4d/312f7
 SUARA_TOKOH = {
     'nenek': 'hNbh1PL2BQ5XtGBJqEiu',   # Devi
     'justin': 'XjGYkUkzth8BPs29fmcV',  # Teddy Twinkle
+    'ayah': 'X8n8hOy3e8VLQnHTUcc5',    # Bram (pilihan klien 26 Nov)
+    'ibu': 'WQ4h6sgS9p2XXvLsESBT',     # Selina
+    'pencerita': 'gmnazjXOFoOcWA59sd5m',  # Kira
 }
 UBAH_NADA = {'justin': (-1, 'preserved')}  # (semitone, formant). Pilihan klien: variasi B = nada turun 1, warna suara anak tetap
 PENGATURAN = {'stability': 0.5, 'similarity_boost': 0.75, 'use_speaker_boost': True}
 BATAS_UJUNG = -38   # dB (20 ms terakhir dibanding suara utama): di bawah ini = meredup wajar
-MAKS_VERSI = 6
+MAKS_VERSI = 3   # hemat kredit (paket hampir habis); bila tetap terpotong, ujungnya dihaluskan
 
 
 def nama_berkas(kunci: str) -> str:

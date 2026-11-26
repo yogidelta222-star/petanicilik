@@ -48,14 +48,15 @@
       return new Promise((selesai) => {
         let beres = false;
         const akhir = () => { if (!beres) { beres = true; clearTimeout(jaga); selesai(tok === this.token); } };
-        const jaga = setTimeout(akhir, 15000);
+        this.hentikan = akhir; // dipanggil diam(): yang menunggu tidak tergantung sampai batas waktu
+        const jaga = setTimeout(akhir, 20000);
         e.onended = () => { if (tok === this.token) akhir(); };
         e.onerror = () => { if (tok === this.token) akhir(); };
         e.src = url;
         e.play().catch((err) => { if (!err || err.name !== 'AbortError') akhir(); });
       });
     },
-    diam() { this.token++; this.el.pause(); },
+    diam() { this.token++; this.el.pause(); if (this.hentikan) this.hentikan(); },
   };
   ['pointerdown', 'touchend', 'keydown'].forEach((ev) => addEventListener(ev, () => Pemutar.buka(), { capture: true, passive: true }));
 
@@ -63,20 +64,85 @@
   const pecahKalimat = (teks) => (teks.replace(/\s+/g, ' ').trim().match(/[^.!?]+[.!?]*/g) || []).map((k) => k.trim()).filter(Boolean);
 
   // Ucapkan satu teks (bisa beberapa kalimat) dengan rekaman tokohnya; selesai = true bila tidak disela
-  async function ucap(tokoh, teks) {
+  async function ucap(tokoh, teks, kalimatKe) {
     const tok = ++ucap.id;
-    for (const k of pecahKalimat(teks)) {
-      if (tok !== ucap.id) return false;
-      const klip = KLIP[`${tokoh}|${k}`];
-      if (klip) await Pemutar.putar('suara/' + klip[0]);
-      else await tunggu(600 + k.length * 55); // belum ada rekaman: beri waktu baca
-      if (tok !== ucap.id) return false;
-      await tunggu(220);
+    Musik.redam(+1);
+    try {
+      const daftar = pecahKalimat(teks);
+      for (let i = 0; i < daftar.length; i++) {
+        const k = daftar[i];
+        if (tok !== ucap.id) return false;
+        if (kalimatKe) kalimatKe(i, k); // mis. menyorot kalimat yang sedang dibaca
+        const klip = KLIP[`${tokoh}|${k}`];
+        if (klip) await Pemutar.putar('suara/' + klip[0]);
+        else await tunggu(600 + k.length * 55); // belum ada rekaman: beri waktu baca
+        if (tok !== ucap.id) return false;
+        await tunggu(220);
+      }
+      return tok === ucap.id;
+    } finally {
+      Musik.redam(-1);
     }
-    return tok === ucap.id;
   }
   ucap.id = 0;
   const diam = () => { ucap.id++; Pemutar.diam(); };
+
+  // ================= MUSIK LATAR (backsound) =================
+  // Diputar berulang dari "Ayo Main!" sampai akhir. Saat ada yang bicara, musik otomatis mengecil.
+  // Memakai AudioContext (GainNode) karena di iPhone volume <audio> tidak bisa diatur dari kode.
+  const Musik = {
+    el: null, gain: null, bicara: 0, jeda: null,
+    KERAS: 0.32, PELAN: 0.09,
+    nyala: (() => { try { return localStorage.getItem('pc_musik') !== '0'; } catch (e) { return true; } })(),
+    mulai() {
+      if (this.el) return;
+      try {
+        ctx = ctx || new (window.AudioContext || window.webkitAudioContext)();
+        if (ctx.state === 'suspended') ctx.resume();
+        this.el = new Audio('musik/latar.mp3');
+        this.el.loop = true;
+        this.gain = ctx.createGain();
+        this.gain.gain.value = 0;
+        ctx.createMediaElementSource(this.el).connect(this.gain).connect(ctx.destination);
+        this.el.play().catch(() => {});
+        this.atur(1.2);
+      } catch (e) { /* tanpa musik pun game tetap jalan */ }
+    },
+    atur(lambat = 0.25) {
+      if (!this.gain) return;
+      const v = !this.nyala ? 0 : this.bicara > 0 ? this.PELAN : this.KERAS;
+      const t = ctx.currentTime;
+      this.gain.gain.cancelScheduledValues(t);
+      this.gain.gain.setTargetAtTime(v, t, lambat / 3);
+    },
+    redam(n) {
+      this.bicara = Math.max(0, this.bicara + n);
+      clearTimeout(this.jeda);
+      // Naik lagi sedikit terlambat, supaya tidak naik-turun di antara kalimat
+      if (this.bicara === 0) this.jeda = setTimeout(() => this.atur(0.8), 700);
+      else this.atur(0.2);
+    },
+    tukar() {
+      this.nyala = !this.nyala;
+      try { localStorage.setItem('pc_musik', this.nyala ? '1' : '0'); } catch (e) { /* abaikan */ }
+      if (this.nyala && this.el && this.el.paused) this.el.play().catch(() => {});
+      this.atur(0.3);
+      tombolMusik.textContent = this.nyala ? '🎵' : '🔇';
+      tombolMusik.classList.toggle('mati', !this.nyala);
+    },
+  };
+  // Tombol musik (selalu ada di pojok kiri atas panggung)
+  const tombolMusik = document.createElement('button');
+  tombolMusik.className = 'tombol-musik' + (Musik.nyala ? '' : ' mati');
+  tombolMusik.textContent = Musik.nyala ? '🎵' : '🔇';
+  tombolMusik.setAttribute('aria-label', 'Musik nyala/mati');
+  tombolMusik.onclick = (e) => { e.stopPropagation(); Musik.mulai(); Musik.tukar(); };
+  // Aplikasi disembunyikan (pindah aplikasi / layar mati) → musik berhenti, lalu lanjut lagi
+  document.addEventListener('visibilitychange', () => {
+    if (!Musik.el) return;
+    if (document.hidden) Musik.el.pause();
+    else if (Musik.nyala) { if (ctx.state === 'suspended') ctx.resume(); Musik.el.play().catch(() => {}); }
+  });
 
   // Efek bunyi sederhana (tanpa berkas): bel pintu "ting-tong" dan bunyi menang
   let ctx = null;
@@ -97,6 +163,7 @@
     pas() { nada(1175, 0, 0.07, 0.18, 'triangle'); nada(1568, 0.06, 0.12, 0.16, 'triangle'); }, // potongan terpasang
     air() { for (let i = 0; i < 10; i++) nada(900 + Math.random() * 900, i * 0.09, 0.08, 0.08); },
     petik() { nada(700, 0, 0.08, 0.22); nada(1050, 0.05, 0.1, 0.18); },
+    balik() { for (let i = 0; i < 7; i++) nada(1400 + Math.random() * 1600, i * 0.035, 0.05, 0.04, 'triangle'); }, // kertas dibalik
   };
 
   // ================= ALAT BANTU TAMPILAN =================
@@ -105,6 +172,7 @@
     diam();
     panggung.className = kelas;
     panggung.innerHTML = html;
+    panggung.appendChild(tombolMusik);
     return giliran;
   }
   const gambarTokoh = (id, gaya, kelas = '') =>
@@ -135,9 +203,9 @@
   // ================= 1. LOADING =================
   function semuaBerkas() {
     const gambar = ['gambar/latar/loading.webp', 'gambar/latar/ruang.webp', 'gambar/latar/surat.webp', 'gambar/latar/jalan.webp',
-      'gambar/latar/kebun.webp', 'gambar/benda/bus.webp', ...Object.values(TOKOH).map((t) => t.gambar)];
+      'gambar/latar/kebun.webp', 'gambar/benda/bus.webp', ...Object.values(TOKOH).map((t) => t.gambar).filter(Boolean)];
     const suara = new Set();
-    [...INTRO, ...PERCAKAPAN, ...Object.values(UCAPAN)].forEach((u) => pecahKalimat(u.t).forEach((k) => {
+    [PEMBUKA, BUKU.sampul, ...BUKU.halaman, ...INTRO, ...PERCAKAPAN, ...Object.values(UCAPAN)].forEach((u) => pecahKalimat(u.t).forEach((k) => {
       const klip = KLIP[`${u.s}|${k}`];
       if (klip) suara.add('suara/' + klip[0]);
     }));
@@ -170,7 +238,7 @@
       // Jalan pintas untuk menguji: alamat diakhiri #level3 langsung ke Level 3, #penutup ke penutup
       const pintas = /#(level([1-5])|penutup)/.exec(location.hash);
       $('#mulai').onclick = () => {
-        Bunyi.pop(); layarPenuh();
+        Bunyi.pop(); layarPenuh(); Musik.mulai();
         // Jalan pintas hanya sekali pakai: alamatnya dibersihkan supaya muat ulang kembali ke awal (intro)
         if (pintas) history.replaceState(null, '', location.pathname + location.search);
         if (!pintas) layarIntro();
@@ -236,6 +304,25 @@
     atur(1);
     $('#lewati').onclick = (e) => { e.stopPropagation(); Bunyi.pop(); layarKebun(); };
 
+    // Bacakan satu langkah kalimat demi kalimat; tulisan di bawah ikut berganti.
+    // Ayah/Ibu/Justin yang berbicara di ruang keluarga ikut bergerak.
+    const ceritakan = async (langkah) => {
+      const tokoh = $(`#p1 [data-tokoh="${langkah.s}"]`);
+      const nama = ['ayah', 'ibu'].includes(langkah.s) ? TOKOH[langkah.s].nama + ': ' : '';
+      if (tokoh) { tokoh.classList.remove('napas'); tokoh.classList.add('bicara'); }
+      await ucap(langkah.s, langkah.t, (i, k) => { $('#teks').textContent = nama ? `${nama}“${k}”` : k; });
+      if (tokoh) { tokoh.classList.remove('bicara'); tokoh.classList.add('napas'); }
+    };
+
+    // 1. Pembuka di ruang keluarga, lalu 2. buku bergambar
+    await tunggu(500);
+    if (!masihAktif(g)) return;
+    await ceritakan(PEMBUKA);
+    if (!masihAktif(g)) return;
+    $('#teks').textContent = '';
+    if (!(await bacaBuku(g))) return;
+
+    // 3. Bel berbunyi → Ayah membuka pintu → surat Nenek → naik bus
     let panelKini = 1;
     for (const langkah of INTRO) {
       if (!masihAktif(g)) return;
@@ -248,9 +335,14 @@
         }
         await tunggu(900);
       }
-      if (langkah.bunyi === 'bel') { Bunyi.bel(); await tunggu(1500); }
-      $('#teks').textContent = langkah.t;
-      await ucap(langkah.s, langkah.t);
+      if (langkah.kePintu) {
+        // Ayah berjalan ke pintu di kanan lalu keluar sebentar
+        $('#p1 [data-tokoh="ayah"]').animate([{ translate: '0 0', opacity: 1 }, { translate: '300px 0', opacity: 1, offset: 0.75 }, { translate: '360px 0', opacity: 0 }],
+          { duration: 2200, easing: 'ease-in-out', fill: 'forwards' });
+      }
+      await ceritakan(langkah);
+      if (!masihAktif(g)) return;
+      if (langkah.bunyiSesudah === 'bel') { Bunyi.bel(); await tunggu(1700); }
       await tunggu(250);
     }
     if (!masihAktif(g)) return;
@@ -263,6 +355,140 @@
     await jalan.finished.catch(() => {});
     await tunggu(300);
     if (masihAktif(g)) layarKebun();
+  }
+
+  // ================= 2b. BUKU BERGAMBAR =================
+  // Buku terbuka di tengah: kiri gambar utama, kanan judul + tulisan yang dibacakan Ayah/Ibu
+  // (kalimat yang sedang dibaca disorot). Justin mendengarkan di kiri, Ibu & Ayah di kanan.
+  // Sampul dibacakan pencerita lalu otomatis ke halaman 1; halaman berikutnya lewat tombol ▶.
+  // Hasil: true setelah buku ditutup (false bila layar sudah berganti, mis. tombol Lewati).
+  function bacaBuku(g) {
+    return new Promise((selesai) => {
+      const ruang = panggung.querySelectorAll('#p1 .tokoh');
+      ruang.forEach((t) => { t.style.transition = 'opacity .5s'; t.style.opacity = '0'; });
+      const lapis = document.createElement('div');
+      lapis.className = 'buku-layar';
+      lapis.innerHTML = `
+        ${gambarTokoh('justin', 'left:24px;width:240px;bottom:-14px', 'napas')}
+        ${gambarTokoh('ibu', 'left:1316px;width:150px;bottom:-10px', 'napas')}
+        ${gambarTokoh('ayah', 'left:1432px;width:168px;bottom:-14px', 'napas')}
+        <div class="buku" id="buku"><div class="kertas" id="kertas">
+          <div class="hal kiri" id="halKiri"></div><div class="hal kanan" id="halKanan"></div><div class="punggung"></div>
+        </div></div>
+        <div class="kendali">
+          <button class="tb-buku" id="bkMundur" aria-label="Halaman sebelumnya">◀</button>
+          <button class="tb-buku" id="bkUlang" aria-label="Dengarkan lagi">🔊</button>
+          <span class="nomor-hal" id="bkNomor"></span>
+          <button class="tombol denyut" id="bkMaju" hidden></button>
+        </div>`;
+      panggung.appendChild(lapis);
+      const kertas = $('#kertas', lapis), kiri = $('#halKiri', lapis), kanan = $('#halKanan', lapis);
+      const mundur = $('#bkMundur', lapis), ulang = $('#bkUlang', lapis), maju = $('#bkMaju', lapis), nomor = $('#bkNomor', lapis);
+      const JUMLAH = BUKU.halaman.length;
+      let hal = 0, sibuk = false, bacaId = 0;
+
+      const data = (i) => (i === 0 ? BUKU.sampul : BUKU.halaman[i - 1]);
+      const kalimat = (t) => pecahKalimat(t).map((k, i) => `<span class="kal" data-i="${i}">${k}</span>`).join(' ');
+      const ukuranHuruf = (t) => (t.length > 500 ? 21 : t.length > 400 ? 23 : 25);
+      const isiKiri = (i) => (i === 0 ? GAMBAR.halaman.sampul() : GAMBAR.halaman[data(i).gambar]());
+      const isiKanan = (i) => {
+        const h = data(i);
+        if (i === 0) {
+          return `<div class="sampul-judul"><small>Buku Bergambar</small><h2>${h.judul}</h2>
+            <p class="teks-hal" style="font-size:30px">${kalimat(h.t)}</p></div>`;
+        }
+        return `<div class="kepala-hal"><span class="no">Halaman ${i}</span><span class="pembaca ${h.s}">${TOKOH[h.s].nama} membacakan</span></div>
+          <h2>${h.ikon} ${h.judul}</h2><p class="teks-hal" style="font-size:${ukuranHuruf(h.t)}px">${kalimat(h.t)}</p>`;
+      };
+      const tampilkanTombol = () => {
+        nomor.textContent = hal === 0 ? '' : `${hal} / ${JUMLAH}`;
+        mundur.disabled = hal <= 1;
+      };
+
+      // Membalik kertas dengan animasi 3D: lembar berputar pada punggung buku
+      async function balik(ke) {
+        const majuArah = ke > hal;
+        Bunyi.balik();
+        const lembar = document.createElement('div');
+        lembar.className = 'lembar ' + (majuArah ? 'maju' : 'mundur');
+        if (majuArah) {
+          lembar.innerHTML = `<div class="muka hal kanan">${kanan.innerHTML}</div><div class="belakang hal kiri">${isiKiri(ke)}</div>`;
+          kanan.innerHTML = isiKanan(ke);
+        } else {
+          lembar.innerHTML = `<div class="muka hal kiri">${kiri.innerHTML}</div><div class="belakang hal kanan">${isiKanan(ke)}</div>`;
+          kiri.innerHTML = isiKiri(ke);
+        }
+        kertas.appendChild(lembar);
+        await lembar.animate([{ transform: 'rotateY(0deg)' }, { transform: `rotateY(${majuArah ? -180 : 180}deg)` }],
+          { duration: 900, easing: 'cubic-bezier(.45,.05,.35,1)' }).finished.catch(() => {});
+        if (majuArah) kiri.innerHTML = isiKiri(ke); else kanan.innerHTML = isiKanan(ke);
+        lembar.remove();
+        hal = ke;
+      }
+
+      // Ayah/Ibu yang membacakan bergerak; Justin tetap mendengarkan
+      const aturPembaca = (s) => lapis.querySelectorAll('.tokoh').forEach((t) => {
+        const ya = t.dataset.tokoh === s;
+        t.classList.toggle('bicara', ya);
+        t.classList.toggle('napas', !ya);
+      });
+      // Halaman pohon: label bagian muncul ketika disebut
+      const SEBUT = [[/ada akar/i, 'akar'], [/ada batang/i, 'batang'], [/tumbuh daun/i, 'daun'], [/memiliki bunga/i, 'bunga'], [/buah inilah/i, 'buah']];
+
+      async function bacakan() {
+        const id = ++bacaId, h = data(hal);
+        maju.hidden = true;
+        kiri.querySelectorAll('.label-bagian').forEach((l) => l.classList.remove('tampak'));
+        aturPembaca(h.s);
+        const tuntas = await ucap(h.s, h.t, (i, k) => {
+          kanan.querySelectorAll('.kal').forEach((s) => s.classList.toggle('dibaca', +s.dataset.i === i));
+          const cocok = SEBUT.find(([re]) => re.test(k));
+          if (cocok) { const l = kiri.querySelector(`[data-bagian="${cocok[1]}"]`); if (l) l.classList.add('tampak'); }
+        });
+        if (id !== bacaId || !masihAktif(g)) return;
+        aturPembaca(null);
+        kanan.querySelectorAll('.kal').forEach((s) => s.classList.remove('dibaca'));
+        kiri.querySelectorAll('.label-bagian').forEach((l) => l.classList.add('tampak'));
+        if (!tuntas) return;
+        if (hal === 0) { await tunggu(500); if (id === bacaId) pergiKe(1); return; }
+        maju.textContent = hal < JUMLAH ? 'Halaman berikutnya ▶' : 'Tutup buku ✓';
+        maju.hidden = false;
+      }
+
+      async function pergiKe(i) {
+        if (sibuk || !masihAktif(g)) return;
+        sibuk = true; bacaId++; diam(); aturPembaca(null);
+        maju.hidden = true;
+        await balik(i);
+        sibuk = false;
+        tampilkanTombol();
+        if (masihAktif(g)) bacakan();
+      }
+
+      async function tutup() {
+        if (sibuk) return;
+        sibuk = true; bacaId++; diam();
+        Bunyi.pop();
+        await lapis.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 600, fill: 'forwards' }).finished.catch(() => {});
+        lapis.remove();
+        ruang.forEach((t) => { t.style.opacity = '1'; });
+        await tunggu(500);
+        selesai(masihAktif(g));
+      }
+
+      maju.onclick = (e) => { e.stopPropagation(); Bunyi.pop(); if (hal < JUMLAH) pergiKe(hal + 1); else tutup(); };
+      mundur.onclick = (e) => { e.stopPropagation(); if (hal > 1) { Bunyi.pop(); pergiKe(hal - 1); } };
+      ulang.onclick = (e) => { e.stopPropagation(); if (sibuk) return; Bunyi.pop(); bacaId++; diam(); setTimeout(bacakan, 150); };
+
+      // Buku muncul dari tangan Justin, terbuka di sampul
+      kiri.innerHTML = isiKiri(0);
+      kanan.innerHTML = isiKanan(0);
+      tampilkanTombol();
+      $('#buku', lapis).animate([{ transform: 'translate(-420px, 200px) scale(.25) rotate(-8deg)', opacity: 0 }, { transform: 'none', opacity: 1 }],
+        { duration: 900, easing: 'cubic-bezier(.3,1.25,.5,1)' });
+      lapis.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 500 });
+      setTimeout(() => { if (masihAktif(g)) bacakan(); }, 1100);
+    });
   }
 
   // ================= 3. TIBA DI KEBUN & PERCAKAPAN =================

@@ -478,5 +478,281 @@
   "ujung": -27.6,
   "cocok": 1.0,
   "dengar": "Petualangan di pertanian nenek sangat menyenangkan."
+ },
+ "pencerita|Pada suatu hari, Ayah, Ibu, dan Justin sedang duduk bersama di ruang keluarga.": {
+  "cara": "v3 #1",
+  "ujung": -41.6,
+  "cocok": 1.0,
+  "dengar": "Pada suatu hari, ayah, ibu, dan Justin sedang duduk bersama di ruang keluarga."
+ },
+ "pencerita|Melihat Justin begitu tertarik, Ayah dan Ibu pun mengajak Justin untuk belajar bersama melalui buku bergambar tersebut.": {
+  "cara": "v3 #1",
+  "ujung": -41.1,
+  "cocok": 1.0,
+  "dengar": "Melihat Justin begitu tertarik, ayah dan ibu pun mengajak Justin untuk belajar bersama melalui buku bergambar tersebut."
+ },
+ "pencerita|Justin terlihat sedang asyik melihat sebuah buku bergambar.": {
+  "cara": "v3 #2 +dihaluskan",
+  "ujung": -25.3,
+  "cocok": 0.88,
+  "dengar": "Justin terlihat sedang asik melihat sebuah buku bergambar."
+ },
+ "pencerita|Buku tersebut berisi berbagai gambar tanaman yang menarik perhatian Justin.": {
+  "cara": "v3 #2 +dihaluskan",
+  "ujung": -37.5,
+  "cocok": 1.0,
+  "dengar": "Buku tersebut berisi berbagai gambar tanaman yang menarik perhatian Justin."
+ },
+ "pencerita|Mereka akan mengenalkan berbagai hal tentang tanaman, mulai dari cara menanam bibit, mengenal pupuk, cara menyiram dan merawat tanaman, hingga mengenal bagian-bagian tanaman serta buah yang sudah matang dan belum matang.": {
+  "cara": "v3 #2 +dihaluskan",
+  "ujung": -20.1,
+  "cocok": 1.0,
+  "dengar": "mereka akan mengenalkan berbagai hal tentang tanaman, mulai dari cara menanam bibit, mengenal pupuk, cara menyiram dan merawat tanaman, hingga mengenal bagian-bagian tanaman serta buah yang sudah matang dan belum matang."
+ },
+ "pencerita|Justin pun terlihat semakin bersemangat untuk membuka setiap halaman buku dan belajar bersama Ayah dan Ibu.": {
+  "cara": "v3 #3 +dihaluskan",
+  "ujung": -37.8,
+  "cocok": 0.94,
+  "dengar": "Yastin pun terlihat semakin bersemangat untuk membuka setiap halaman buku dan belajar bersama ayah dan ibu."
+ },
+ "pencerita|Ayah dan Ibu mulai membacakan halaman pertama buku bergambar.": {
+  "cara": "v3 #1 +dihaluskan",
+  "ujung": -21.5,
+  "cocok": 1.0,
+  "dengar": "Ayah dan ibu mulai membacakan halaman pertama buku bergambar."
+ },
+ "pencerita|Yuk, kita ikuti Justin belajar mengenal tanaman!": {
+  "cara": "v3 #1 +dihaluskan",
+  "ujung": -19.2,
+  "cocok": 1.0,
+  "dengar": "Yuk kita ikuti Justin belajar mengenal tanaman."
+ },
+ "ibu|Justin, tahukah kamu bagaimana sebuah tanaman bisa tumbuh?": {
+  "cara": "v3 #1 +dihaluskan",
+  "ujung": -36.8,
+  "cocok": 1.0,
+  "dengar": "Justin, tahukah kamu bagaimana sebuah tanaman bisa tumbuh?"
+ },
+ "ibu|Semuanya berawal dari bibit, lho!": {
+  "cara": "v3 #1 +dihaluskan",
+  "ujung": -13.4,
+  "cocok": 1.0,
+  "dengar": "Semuanya berawal dari bibit lho"
+ },
+ "ibu|Untuk menanamnya, kita perlu menyiapkan tanah terlebih dahulu.": {
+  "cara": "v3 #1 +dihaluskan",
+  "ujung": -31.8,
+  "cocok": 1.0,
+  "dengar": "Untuk menanamnya, kita perlu menyiapkan tanah terlebih dahulu"
+ },
+ "ibu|Kemudian, buat lubang kecil, masukkan bibit ke dalamnya, dan tutup kembali dengan tanah.": {
+  "cara": "v3 #2 +dihaluskan",
+  "ujung": -35.4,
+  "cocok": 1.0,
+  "dengar": "Kemudian buat lubang kecil, masukkan bibit ke dalamnya dan tutup kembali dengan tanah"
+ },
+ "ibu|Nah, dari bibit kecil inilah tanaman akan mulai tumbuh.": {
+  "cara": "v3 #2 +dihaluskan",
+  "ujung": -25.7,
+  "cocok": 1.0,
+  "dengar": "Nah, dari bibit kecil inilah tanaman akan mulai tumbuh."
+ },
+ "ayah|Salah satu caranya adalah dengan memberikan pupuk.": {
+  "cara": "v3 #2",
+  "ujung": -40.3,
+  "cocok": 1.0,
+  "dengar": "salah satu caranya adalah dengan memberikan pupuk."
+ },
+ "ayah|Justin, agar tanaman tumbuh subur dan sehat, tanaman juga membutuhkan nutrisi.": {
+  "cara": "v3 #3 +dihaluskan",
+  "ujung": -12.9,
+  "cocok": 0.91,
+  "dengar": "Justin, agar tanaman tunggu subur dan sehat, tanaman juga membutuhkan nutrisi."
+ },
+ "ayah|Ada pupuk kompos yang dibuat dari daun-daun kering dan sisa bahan alami yang sudah membusuk.": {
+  "cara": "v3 #3 +dihaluskan",
+  "ujung": -31.9,
+  "cocok": 1.0,
+  "dengar": "Ada pupuk kompos yang dibuat dari daun-daun kering dan sisa bahan alami yang sudah membusuk."
+ },
+ "ayah|Pupuk ini membantu menyuburkan tanah dan memberikan nutrisi bagi tanaman.": {
+  "cara": "v3 #1 +dihaluskan",
+  "ujung": -23.3,
+  "cocok": 0.9,
+  "dengar": "Pupuk ini membantu menyupurkan tanah dan memberikan nutrisi bagi tanaman."
+ },
+ "ayah|Wah, ternyata daun kering juga bisa bermanfaat, ya!": {
+  "cara": "v3 #2 +dihaluskan",
+  "ujung": -13.9,
+  "cocok": 1.0,
+  "dengar": "Wah, ternyata daun kering juga bisa bermanfaat ya."
+ },
+ "ibu|Salah satunya dengan menyiram tanaman secara teratur.": {
+  "cara": "v3 #1",
+  "ujung": -42.4,
+  "cocok": 1.0,
+  "dengar": "Salah satunya dengan menyiram tanaman secara teratur."
+ },
+ "ibu|Setelah bibit ditanam, kita tidak boleh lupa merawatnya, Justin.": {
+  "cara": "v3 #1 +dihaluskan",
+  "ujung": -27.9,
+  "cocok": 1.0,
+  "dengar": "Setelah bibit ditanam, kita tidak boleh lupa merawatnya Justin."
+ },
+ "ibu|Untuk menyiramnya, kita bisa menggunakan teko penyiram tanaman.": {
+  "cara": "v3 #3 +dihaluskan",
+  "ujung": -20.2,
+  "cocok": 1.0,
+  "dengar": "Untuk menyiramnya kita bisa menggunakan teko penyiram tanaman."
+ },
+ "ibu|Caranya mudah, isi teko dengan air, lalu siramkan perlahan ke tanah di sekitar tanaman.": {
+  "cara": "v3 #3 +dihaluskan",
+  "ujung": -37.3,
+  "cocok": 1.0,
+  "dengar": "Caranya mudah, isi teko dengan air, lalu siramkan perlahan ke tanah di sekitar tanaman."
+ },
+ "ibu|Air sangat penting bagi tanaman agar bisa tumbuh dengan baik.": {
+  "cara": "v3 #2 +dihaluskan",
+  "ujung": -33.3,
+  "cocok": 0.9,
+  "dengar": "Aib sangat penting bagi tanaman agar bisa tumbuh dengan baik."
+ },
+ "ibu|Jadi, jangan lupa menyiram tanaman, ya!": {
+  "cara": "v3 #2 +dihaluskan",
+  "ujung": -32.5,
+  "cocok": 1.0,
+  "dengar": "Jadi jangan lupa menyiram tanaman ya."
+ },
+ "ayah|Justin, coba lihat pohon apel ini!": {
+  "cara": "v3 #2 +dihaluskan",
+  "ujung": -20.4,
+  "cocok": 1.0,
+  "dengar": "Justin, coba lihat pohon apel ini."
+ },
+ "ayah|Pohon apel memiliki beberapa bagian yang saling membantu agar bisa tumbuh dengan baik.": {
+  "cara": "v3 #3 +dihaluskan",
+  "ujung": -36.6,
+  "cocok": 1.0,
+  "dengar": "Pohon apel memiliki beberapa bagian yang saling membantu agar bisa tumbuh dengan baik."
+ },
+ "ayah|Di bagian bawah ada akar yang menyerap air dan nutrisi dari tanah.": {
+  "cara": "v3 #2 +dihaluskan",
+  "ujung": -22.3,
+  "cocok": 1.0,
+  "dengar": "Di bagian bawah ada akar yang menyerap air dan nutrisi dari tanah."
+ },
+ "ayah|Kemudian, ada batang yang menopang pohon agar tetap berdiri tegak.": {
+  "cara": "v3 #2 +dihaluskan",
+  "ujung": -31.8,
+  "cocok": 0.9,
+  "dengar": "Kemudian ada batang yang menopang pohon agar tetap berdiri tegap."
+ },
+ "ayah|Di sekitar batang tumbuh daun yang membantu pohon membuat makanan.": {
+  "cara": "v3 #3 +dihaluskan",
+  "ujung": -14.7,
+  "cocok": 1.0,
+  "dengar": "Di sekitar batang tumbuh daun yang membantu pohon membuat makanan."
+ },
+ "ayah|Pohon apel juga memiliki bunga yang nantinya dapat berkembang menjadi buah.": {
+  "cara": "v3 #3 +dihaluskan",
+  "ujung": -18.5,
+  "cocok": 1.0,
+  "dengar": "Pohon apel juga memiliki bunga yang nantinya dapat berkembang menjadi buah."
+ },
+ "ayah|Nah, buah inilah yang bisa kita petik dan nikmati ketika sudah matang.": {
+  "cara": "v3 #1 +dihaluskan",
+  "ujung": -31.0,
+  "cocok": 1.0,
+  "dengar": "Nah buah inilah yang bisa kita petik dan nikmati ketika sudah matang."
+ },
+ "ayah|Wah, ternyata setiap bagian pohon apel punya kegunaan masing-masing, ya!": {
+  "cara": "v3 #3 +dihaluskan",
+  "ujung": -33.1,
+  "cocok": 1.0,
+  "dengar": "Wah, ternyata setiap bagian pohon apel punya kegunaan masing-masing ya."
+ },
+ "ibu|Nah, Justin, sekarang coba perhatikan kedua buah ini!": {
+  "cara": "v3 #2 +dihaluskan",
+  "ujung": -37.1,
+  "cocok": 1.0,
+  "dengar": "Nah Justin, sekarang coba perhatikan kedua buah ini."
+ },
+ "ibu|Warnanya berbeda, ya.": {
+  "cara": "v3 #1 +dihaluskan",
+  "ujung": -27.9,
+  "cocok": 1.0,
+  "dengar": "Warnanya berbeda ya."
+ },
+ "ibu|Buah yang berwarna merah pada gambar ini sudah matang, sedangkan buah yang berwarna hijau belum matang.": {
+  "cara": "v3 #3",
+  "ujung": -79.2,
+  "cocok": 1.0,
+  "dengar": "Buah yang berwarna merah pada gambar ini sudah matang sedangkan buah yang berwarna hijau belum matang"
+ },
+ "ibu|Buah yang sudah matang biasanya lebih siap untuk dipanen.": {
+  "cara": "v3 #3 +dihaluskan",
+  "ujung": -20.8,
+  "cocok": 1.0,
+  "dengar": "Buah yang sudah matang biasanya lebih siap untuk dipanen."
+ },
+ "ibu|Jadi, sebelum memetik buah, kita perlu memperhatikan apakah buah tersebut sudah matang atau belum.": {
+  "cara": "v3 #2 +dihaluskan",
+  "ujung": -34.2,
+  "cocok": 1.0,
+  "dengar": "Jadi sebelum memetik buah, kita perlu memperhatikan apakah buah tersebut sudah matang atau belum."
+ },
+ "ibu|Menarik sekali, bukan?": {
+  "cara": "v3 #3 +dihaluskan",
+  "ujung": -36.3,
+  "cocok": 1.0,
+  "dengar": "Menarik sekali bukan?"
+ },
+ "pencerita|Setelah Ayah dan Ibu selesai menjelaskan isi buku bergambar, Justin kembali memperhatikan setiap gambar yang ada di dalam buku tersebut.": {
+  "cara": "v3 #2",
+  "ujung": -51.0,
+  "cocok": 1.0,
+  "dengar": "Setelah ayah dan ibu selesai menjelaskan isi buku bergambar, Justin kembali memperhatikan setiap gambar yang ada di dalam buku tersebut."
+ },
+ "pencerita|Ia melihat kembali gambar bibit, pupuk, cara menyiram tanaman, bagian-bagian pohon apel, hingga buah yang sudah matang dan belum matang.": {
+  "cara": "v3 #2",
+  "ujung": -41.4,
+  "cocok": 1.0,
+  "dengar": "Ia melihat kembali gambar bibit, pupuk, cara menyiram tanaman, bagian-bagian pohon apel, hingga buah yang sudah matang dan belum matang."
+ },
+ "pencerita|Justin tampak senang karena sekarang ia sudah mengetahui banyak hal tentang tanaman.": {
+  "cara": "v3 #2",
+  "ujung": -39.7,
+  "cocok": 1.0,
+  "dengar": "Justin tampak senang karena sekarang ia sudah mengetahui banyak hal tentang tanaman."
+ },
+ "pencerita|Saat Justin masih asyik melihat-lihat gambar tersebut bersama Ayah dan Ibu, tiba-tiba terdengar suara bel rumah berbunyi.": {
+  "cara": "v3 #3 +dihaluskan",
+  "ujung": -30.8,
+  "cocok": 0.95,
+  "dengar": "Saat Justin masih asik melihat-lihat gambar tersebut bersama ayah dan ibu, tiba-tiba terdengar suara bel rumah berbunyi."
+ },
+ "ibu|Sepertinya ada yang datang, Yah.": {
+  "cara": "v3 #1 +dihaluskan",
+  "ujung": -29.2,
+  "cocok": 0.8,
+  "dengar": "Sepertinya ada yang datang ya."
+ },
+ "pencerita|Ayah pun membuka pintu.": {
+  "cara": "v3 #1",
+  "ujung": -45.0,
+  "cocok": 1.0,
+  "dengar": "Ayah pun membuka pintu."
+ },
+ "ibu|Coba lihat dulu.": {
+  "cara": "v3 #1 +dihaluskan",
+  "ujung": -34.7,
+  "cocok": 1.0,
+  "dengar": "Coba lihat dulu."
+ },
+ "pencerita|Seorang tukang pos datang mengantarkan sebuah surat.": {
+  "cara": "v3 #1",
+  "ujung": -43.3,
+  "cocok": 1.0,
+  "dengar": "Seorang tukang pos datang mengantarkan sebuah surat."
  }
 }

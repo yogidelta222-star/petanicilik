@@ -139,11 +139,41 @@ const GAMBAR = {
     <path d="M300,340 C250,300 210,300 180,290 M340,340 C390,300 430,300 460,280" stroke="#8a7656" stroke-width="7" fill="none" stroke-dasharray="12 9" stroke-linecap="round"/>
     <path d="M150,300 C80,300 60,220 110,180 C90,110 170,60 230,90 C260,30 380,30 410,90 C470,60 550,110 530,180 C590,220 560,310 490,300 C470,340 400,350 360,320 C330,350 280,350 250,320 C210,350 160,340 150,300Z" fill="rgba(170,215,140,.35)" stroke="#8a7656" stroke-width="7" stroke-dasharray="12 9" stroke-linejoin="round"/>
     <g fill="none" stroke="#8a7656" stroke-width="5" stroke-dasharray="9 7" stroke-linejoin="round">
-      <path d="M106,254 C100,200 140,162 196,164 C196,220 160,258 106,254Z"/>
       <g transform="translate(499,120)">${[0, 72, 144, 216, 288].map((a) => `<ellipse cx="0" cy="-22" rx="16" ry="22" transform="rotate(${a})"/>`).join('')}<circle r="12"/></g>
       <path d="M390,256 C364,240 340,262 346,290 C352,318 374,330 390,322 C406,330 428,318 434,290 C440,262 416,240 390,256Z"/>
     </g>
   </svg>`,
+
+  // Kepingan Level 4 yang bentuk & ukurannya PERSIS sketsa pohon (koordinat sketsa 640 × 720),
+  // tanpa kartu putih: kotak = [x, y, lebar, tinggi] bagian sketsa yang ditutupi kepingan.
+  keping: {
+    daun: { kotak: [50, 20, 550, 340], isi: `
+      <path d="M150,300 C80,300 60,220 110,180 C90,110 170,60 230,90 C260,30 380,30 410,90 C470,60 550,110 530,180 C590,220 560,310 490,300 C470,340 400,350 360,320 C330,350 280,350 250,320 C210,350 160,340 150,300Z"
+            fill="#5cb83c" stroke="#2f6b1a" stroke-width="8" stroke-linejoin="round"/>
+      <path d="M160,170 C180,146 214,146 230,162 M330,100 C352,84 386,86 400,106 M250,230 C272,214 304,216 318,232 M430,210 C452,196 482,200 494,218 M120,250 C134,236 156,236 166,246"
+            stroke="#8edb5a" stroke-width="12" fill="none" stroke-linecap="round"/>
+      <path d="M200,280 C214,268 232,268 242,280 M380,270 C394,258 412,258 422,270" stroke="#3f9a2c" stroke-width="8" fill="none" stroke-linecap="round"/>` },
+    batang: { kotak: [282, 322, 76, 206], isi: `
+      <path d="M290,520 Q300,420 292,330 L348,330 Q340,420 350,520Z" fill="#9b6533" stroke="${GARIS}" stroke-width="7" stroke-linejoin="round"/>
+      <path d="M310,370 q8,14 0,28 M332,440 q-8,16 2,32 M312,480 q6,10 0,20" stroke="#6d4320" stroke-width="5" fill="none" stroke-linecap="round"/>` },
+    akar: { kotak: [220, 512, 196, 180], isi: `
+      <path d="M320,520 V580 M320,560 C300,590 260,600 240,640 M320,560 C340,592 380,602 400,642 M320,580 V680 M290,600 C270,610 250,606 230,616"
+            stroke="#8d5a2b" stroke-width="13" fill="none" stroke-linecap="round"/>
+      <path d="M320,520 V580 M320,560 C300,590 260,600 240,640 M320,560 C340,592 380,602 400,642 M320,580 V680"
+            stroke="#c48a52" stroke-width="4" fill="none" stroke-linecap="round"/>` },
+    bunga: { kotak: [453, 74, 92, 92], isi: `<g transform="translate(499,120)">
+      ${[0, 72, 144, 216, 288].map((a) => `<ellipse cx="0" cy="-22" rx="16" ry="22" transform="rotate(${a})" fill="#ffe3ee" stroke="#c2577f" stroke-width="5"/>`).join('')}
+      <circle r="12" fill="#ffd54f" stroke="#b07d00" stroke-width="4"/></g>` },
+    buah: { kotak: [338, 226, 104, 108], isi: `
+      <path d="M390,256 C364,240 340,262 346,290 C352,318 374,330 390,322 C406,330 428,318 434,290 C440,262 416,240 390,256Z" fill="#e53935" stroke="#7f1d1d" stroke-width="6" stroke-linejoin="round"/>
+      <path d="M364,272 Q358,288 364,300" stroke="#ff8a80" stroke-width="7" fill="none" stroke-linecap="round"/>
+      <path d="M390,256 Q392,242 398,232" stroke="${GARIS}" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M396,240 C404,228 422,228 426,236 C418,246 404,246 396,240Z" fill="#6cc24a" stroke="#2f6b1a" stroke-width="3"/>` },
+  },
+  gambarKeping(id) {
+    const [x, y, w, h] = this.keping[id].kotak;
+    return `<svg viewBox="${x} ${y} ${w} ${h}" width="100%" height="100%" overflow="visible">${this.keping[id].isi}</svg>`;
+  },
 
   // Apel untuk Level 5 (merah = matang, hijau = belum)
   apel(warna) {
@@ -178,4 +208,123 @@ const GAMBAR = {
 
   // Tetes air untuk siraman teko
   tetes: () => `<svg viewBox="-20 -28 40 50" width="100%" height="100%"><path d="M0,-24 C12,-6 16,4 16,10 A16,16 0 0 1 -16,10 C-16,4 -12,-6 0,-24Z" fill="#64b5f6" stroke="#1565c0" stroke-width="4"/></svg>`,
+};
+
+// Sisipkan gambar SVG lain ke dalam gambar halaman (x, y, lebar, tinggi dalam satuan halaman)
+const sisip = (svg, x, y, w, h) => svg.replace('width="100%" height="100%"', `x="${x}" y="${y}" width="${w}" height="${h}"`);
+
+// Daun kering (untuk halaman pupuk)
+const daunKering = (x, y, r, s, warna) => `<g transform="translate(${x},${y}) rotate(${r}) scale(${s})">
+  <path d="M-30,0 C-20,-22 14,-24 32,0 C14,24 -20,22 -30,0Z" fill="${warna}" stroke="#6d4320" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M-34,0 L26,0 M-6,0 L6,-12 M-6,0 L6,12 M10,0 L18,-8 M10,0 L18,8" stroke="#6d4320" stroke-width="3" fill="none" stroke-linecap="round"/></g>`;
+
+// Gambar utama tiap halaman buku bergambar (480 × 520)
+GAMBAR.halaman = {
+  // Bingkai halaman: langit lembut + tanah
+  langit: (tanahY = 330) => `<defs><linearGradient id="hl-langit" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bfe7ff"/><stop offset="1" stop-color="#f4fbff"/></linearGradient></defs>
+    <rect x="6" y="6" width="468" height="508" rx="26" fill="url(#hl-langit)"/>
+    <circle cx="410" cy="70" r="36" fill="#ffe066"/>
+    <path d="M6,${tanahY} Q120,${tanahY - 14} 240,${tanahY} T474,${tanahY} V488 Q474,514 448,514 H32 Q6,514 6,488Z" fill="#9a6a3c"/>
+    <path d="M6,${tanahY} Q120,${tanahY - 14} 240,${tanahY} T474,${tanahY}" stroke="#6cc24a" stroke-width="14" fill="none" stroke-linecap="round"/>`,
+
+  sampul() {
+    return `<svg viewBox="0 0 480 520" width="100%" height="100%">${this.langit(400)}
+      ${sisip(GAMBAR.pohon(), 40, 60, 400, 338)}
+      ${[[150, 190], [250, 150], [330, 210], [200, 250], [300, 120]].map(([x, y]) => sisip(GAMBAR.apel('merah'), x, y, 46, 46)).join('')}
+      ${sisip(GAMBAR.tunas(), 50, 360, 90, 75)}${sisip(GAMBAR.tunas(), 360, 362, 80, 68)}
+    </svg>`;
+  },
+
+  // 1 sekop & lubang · 2 bibit masuk lubang · 3 ditutup tanah, tunas tumbuh
+  bibit() {
+    const lubang = (x) => `<path d="M${x - 40},334 Q${x - 38},392 ${x},394 Q${x + 38},392 ${x + 40},334Z" fill="#5a3416" stroke="${GARIS}" stroke-width="5"/>`;
+    const nomor = (x, n) => `<circle cx="${x}" cy="200" r="26" fill="#fff" stroke="${GARIS}" stroke-width="5"/><text x="${x}" y="212" text-anchor="middle" font-family="Baloo 2, sans-serif" font-weight="800" font-size="34" fill="${GARIS}">${n}</text>`;
+    return `<svg viewBox="0 0 480 520" width="100%" height="100%">${this.langit()}
+      ${lubang(90)}${lubang(240)}
+      <path d="M346,334 Q390,290 434,334Z" fill="#7a4a22" stroke="${GARIS}" stroke-width="5"/>
+      ${sisip(GAMBAR.tunas(), 330, 220, 120, 100)}
+      ${sisip(GAMBAR.biji(), 222, 340, 36, 40)}
+      ${sisip(GAMBAR.biji(), 222, 248, 36, 40)}
+      <path d="M240,296 v22" stroke="${GARIS}" stroke-width="5" stroke-dasharray="6 6" stroke-linecap="round"/>
+      <g transform="translate(118,250) rotate(-35)">
+        <rect x="-7" y="-110" width="14" height="80" rx="6" fill="#b5793d" stroke="${GARIS}" stroke-width="4"/>
+        <path d="M-26,-34 H26 V8 Q0,34 -26,8Z" fill="#b0bec5" stroke="${GARIS}" stroke-width="5" stroke-linejoin="round"/>
+      </g>
+      ${nomor(90, 1)}${nomor(240, 2)}${nomor(390, 3)}
+      <path d="M140,150 q20,-14 40,0 M290,150 q20,-14 40,0" stroke="#8a7656" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M172,142 l10,8 -12,6 M322,142 l10,8 -12,6" stroke="#8a7656" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>`;
+  },
+
+  // Kotak kompos berisi daun kering & sisa bahan alami, di sampingnya karung pupuk
+  pupuk() {
+    const warna = ['#d9822b', '#b5651d', '#e0a43a', '#a0522d', '#c97a2a'];
+    return `<svg viewBox="0 0 480 520" width="100%" height="100%">${this.langit(400)}
+      <path d="M40,250 Q130,214 220,250 L220,260 L40,260Z" fill="#4a2e17"/>
+      ${[[70, 236, 20], [110, 222, -30], [150, 226, 60], [190, 238, -10], [128, 244, 100]].map(([x, y, r], i) => daunKering(x, y, r, 0.8, warna[i])).join('')}
+      <circle cx="96" cy="246" r="9" fill="#e53935" stroke="${GARIS}" stroke-width="3"/><path d="M168,248 q8,-12 16,0" stroke="#f3e1b0" stroke-width="7" fill="none"/>
+      <rect x="34" y="252" width="192" height="160" rx="10" fill="#4a2e17"/>
+      ${[264, 304, 344, 384].map((y) => `<rect x="30" y="${y}" width="200" height="30" rx="6" fill="#b07a42" stroke="${GARIS}" stroke-width="5"/>`).join('')}
+      <rect x="26" y="248" width="16" height="170" rx="5" fill="#8d5a2b" stroke="${GARIS}" stroke-width="5"/>
+      <rect x="218" y="248" width="16" height="170" rx="5" fill="#8d5a2b" stroke="${GARIS}" stroke-width="5"/>
+      <text x="130" y="348" text-anchor="middle" font-family="Baloo 2, sans-serif" font-weight="800" font-size="30" fill="#fff6e0" stroke="${GARIS}" stroke-width="6" paint-order="stroke">KOMPOS</text>
+      ${daunKering(70, 120, 30, 0.9, warna[0])}${daunKering(170, 80, -20, 0.8, warna[2])}${daunKering(120, 170, 70, 0.7, warna[3])}
+      <path d="M60,150 q-10,20 6,36 M200,120 q14,20 -2,40" stroke="#8a7656" stroke-width="4" fill="none" stroke-dasharray="6 6"/>
+      ${sisip(GAMBAR.karung('pupuk'), 250, 150, 200, 266)}
+    </svg>`;
+  },
+
+  // Teko penyiram menyiram tunas
+  siram() {
+    return `<svg viewBox="0 0 480 520" width="100%" height="100%">${this.langit(400)}
+      <path d="M90,400 Q150,370 210,400Z" fill="#7a4a22" stroke="${GARIS}" stroke-width="5"/>
+      ${sisip(GAMBAR.tunas(), 90, 290, 120, 100)}
+      <g transform="rotate(-24 330 190)">${sisip(GAMBAR.teko(), 170, 80, 320, 240)}</g>
+      ${[[186, 214, .9], [170, 250, .8], [196, 270, .7], [160, 300, .75], [188, 320, .6], [176, 352, .55]].map(([x, y, s]) => sisip(GAMBAR.tetes(), x - 16 * s, y - 20 * s, 32 * s, 40 * s)).join('')}
+      <path d="M150,410 q20,10 40,0 M120,420 q30,14 60,0" stroke="#5aa0e0" stroke-width="5" fill="none" stroke-linecap="round" opacity=".7"/>
+    </svg>`;
+  },
+
+  // Pohon apel lengkap dengan akar terlihat; label bagian muncul satu per satu (data-bagian)
+  pohon() {
+    const label = (bagian, teks, lx, ly, tx, ty) => `<g class="label-bagian" data-bagian="${bagian}">
+      <circle class="sorot" cx="${tx}" cy="${ty}" r="30" fill="none" stroke="#ffcf33" stroke-width="7"/>
+      <path d="M${lx},${ly} L${tx},${ty}" stroke="${GARIS}" stroke-width="4" stroke-dasharray="7 6"/>
+      <rect x="${lx - 62}" y="${ly - 24}" width="124" height="48" rx="24" fill="#fff" stroke="${GARIS}" stroke-width="5"/>
+      <text x="${lx}" y="${ly + 11}" text-anchor="middle" font-family="Baloo 2, sans-serif" font-weight="800" font-size="30" fill="${GARIS}">${teks}</text></g>`;
+    return `<svg viewBox="0 0 480 520" width="100%" height="100%">${this.langit(380)}
+      <path d="M240,384 V420 M240,404 C222,430 190,438 172,470 M240,404 C258,432 292,440 310,474 M240,420 V492 M222,440 C204,448 186,444 168,452 M258,450 C276,456 296,452 312,460"
+            stroke="#e8c79a" stroke-width="12" fill="none" stroke-linecap="round"/>
+      <path d="M240,384 V420 M240,404 C222,430 190,438 172,470 M240,404 C258,432 292,440 310,474 M240,420 V492 M222,440 C204,448 186,444 168,452 M258,450 C276,456 296,452 312,460"
+            stroke="#c48a52" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M214,384 Q226,300 218,230 L262,230 Q254,300 266,384Z" fill="#9b6533" stroke="${GARIS}" stroke-width="6" stroke-linejoin="round"/>
+      <path d="M222,262 C190,236 160,236 140,226 M258,262 C290,236 320,236 340,222" stroke="#9b6533" stroke-width="14" fill="none" stroke-linecap="round"/>
+      <path d="M100,236 C40,236 26,170 70,140 C50,80 120,30 180,58 C204,6 330,8 352,60 C410,30 470,86 446,146 C484,180 456,240 400,238 C384,266 330,272 300,250 C276,272 214,274 190,250 C160,272 110,264 100,236Z"
+            fill="#5cb83c" stroke="#2f6b1a" stroke-width="6" stroke-linejoin="round"/>
+      <path d="M130,120 C150,100 180,100 192,114 M300,80 C320,66 350,68 362,86 M230,170 C250,156 280,158 292,170" stroke="#8edb5a" stroke-width="9" fill="none" stroke-linecap="round"/>
+      ${sisip(GAMBAR.bagian.daun, 30, 186, 70, 70)}
+      ${sisip(GAMBAR.bagian.bunga, 352, 70, 64, 64)}${sisip(GAMBAR.bagian.bunga, 196, 54, 50, 50)}
+      ${[[130, 150], [300, 150], [250, 196], [380, 180]].map(([x, y]) => sisip(GAMBAR.apel('merah'), x, y, 50, 50)).join('')}
+      ${label('akar', 'Akar', 400, 470, 300, 466)}
+      ${label('batang', 'Batang', 370, 330, 262, 320)}
+      ${label('daun', 'Daun', 80, 300, 62, 222)}
+      ${label('bunga', 'Bunga', 400, 30, 384, 96)}
+      ${label('buah', 'Buah', 90, 44, 154, 170)}
+    </svg>`;
+  },
+
+  // Apel merah (matang) dan apel hijau (belum matang) berdampingan
+  buah() {
+    const tanda = (x, teks, warna) => `<rect x="${x - 106}" y="404" width="212" height="56" rx="28" fill="${warna}" stroke="${GARIS}" stroke-width="5"/>
+      <text x="${x}" y="441" text-anchor="middle" font-family="Baloo 2, sans-serif" font-weight="800" font-size="26" fill="#fff" stroke="${GARIS}" stroke-width="5" paint-order="stroke">${teks}</text>`;
+    return `<svg viewBox="0 0 480 520" width="100%" height="100%">${this.langit(470)}
+      <path d="M20,96 Q240,60 460,100" stroke="#8d5a2b" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <path d="M20,96 Q240,60 460,100" stroke="${GARIS}" stroke-width="4" fill="none"/>
+      <path d="M120,86 v40 M360,86 v40" stroke="${GARIS}" stroke-width="6"/>
+      ${sisip(GAMBAR.apel('merah'), 20, 110, 200, 200)}
+      ${sisip(GAMBAR.apel('hijau'), 260, 110, 200, 200)}
+      ${tanda(120, 'Matang ✓', '#e53935')}${tanda(360, 'Belum matang', '#7cb342')}
+      <path d="M120,330 v60 M360,330 v60" stroke="#8a7656" stroke-width="5" stroke-dasharray="8 7" stroke-linecap="round"/>
+    </svg>`;
+  },
 };

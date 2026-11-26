@@ -154,28 +154,43 @@ const PERMAINAN = {
   4(a) {
     return new Promise((selesai) => {
       const L = a.arena;
-      buat(L, `<div class="sketsa" style="left:300px;top:150px">${GAMBAR.sketsaPohon()}</div>`);
-      const ZONA = { akar: [580, 692], batang: [580, 522], daun: [431, 334], bunga: [737, 255], buah: [641, 395] };
+      // Sketsa 640 × 720 ditampilkan 560 × 630 di (300, 150) → skala 0,875
+      const SX = 300, SY = 150, SK = 0.875;
+      const keStage = (x, y) => [SX + x * SK, SY + y * SK];
+      buat(L, `<div class="sketsa" style="left:${SX}px;top:${SY}px">${GAMBAR.sketsaPohon()}</div>`);
+      // Kepingan berbentuk persis bagian sketsanya; titik tengah kepingan = titik tengah tempatnya di sketsa
+      const pusat = (id) => { const [x, y, w, h] = GAMBAR.keping[id].kotak; return keStage(x + w / 2, y + h / 2); };
+      const ZONA = Object.fromEntries(['akar', 'batang', 'daun', 'bunga', 'buah'].map((id) => [id, pusat(id)]));
+      // Lingkaran "?" daun di bagian atas tajuk, agar tidak bertumpuk dengan lingkaran buah
+      const TANDA = { ...ZONA, daun: keStage(300, 150) };
+      const BATAS = { daun: 170, batang: 100, akar: 100, bunga: 90, buah: 90 }; // seberapa dekat boleh dilepas
       const NAMA = { akar: 'Akar', batang: 'Batang', daun: 'Daun', bunga: 'Bunga', buah: 'Buah' };
       const zonaEl = {};
-      Object.entries(ZONA).forEach(([id, [x, y]]) => { zonaEl[id] = buat(L, `<div class="zona" style="left:${x}px;top:${y}px"></div>`); });
-      const TEMPAT = acak([[1060, 250], [1260, 250], [1060, 460], [1260, 460], [1160, 670]]);
+      Object.entries(TANDA).forEach(([id, [x, y]]) => { zonaEl[id] = buat(L, `<div class="zona" style="left:${x}px;top:${y}px"></div>`); });
+      // Tempat awal kepingan di kanan: tajuk daun di atas, empat kepingan kecil diacak di bawahnya
+      const TEMPAT = { daun: [1200, 330] };
+      acak([[1010, 640], [1160, 640], [1300, 620], [1090, 790], [1250, 790]]).slice(0, 4)
+        .forEach((t, i) => { TEMPAT[['akar', 'batang', 'bunga', 'buah'][i]] = t; });
       let benar = 0;
-      Object.keys(ZONA).forEach((id, i) => {
-        const [kx, ky] = TEMPAT[i]; // titik tengah kartu
-        const k = buat(L, `<div class="kartu-bagian" style="left:${kx - 75}px;top:${ky - 85}px"><div class="gbr">${GAMBAR.bagian[id]}</div><b>${NAMA[id]}</b></div>`);
+      Object.keys(ZONA).forEach((id) => {
+        const [kx, ky] = TEMPAT[id]; // titik tengah kepingan
+        const [, , w, h] = GAMBAR.keping[id].kotak;
+        const lw = w * SK, lh = h * SK;
+        const k = buat(L, `<div class="keping-bagian ${id}" style="left:${kx - lw / 2}px;top:${ky - lh / 2}px;width:${lw}px;height:${lh}px">
+          <div class="gbr">${GAMBAR.gambarKeping(id)}</div><b>${NAMA[id]}</b></div>`);
         a.seret(k, {
           mulai: () => { k.style.zIndex = ++tumpukan; },
           lepas: (p, dx, dy) => {
             const cx = kx + dx, cy = ky + dy;
             const kena = Object.keys(ZONA).filter((z) => !zonaEl[z].classList.contains('terisi'))
-              .map((z) => ({ z, d: Math.hypot(ZONA[z][0] - cx, ZONA[z][1] - cy) })).sort((u, v) => u.d - v.d)[0];
-            if (!kena || kena.d > 105) { a.geser(k, 0, 0); return; }
+              .map((z) => ({ z, d: Math.hypot(ZONA[z][0] - cx, ZONA[z][1] - cy) - (z === id ? 25 : 0) }))
+              .sort((u, v) => u.d - v.d)[0];
+            if (!kena || kena.d > BATAS[kena.z]) { a.geser(k, 0, 0); return; }
             if (kena.z !== id) { a.Bunyi.salah(); a.geser(k, 0, 0); a.bicara(a.naskah.salah); return; }
             a.geser(k, ZONA[id][0] - kx, ZONA[id][1] - ky);
             k.dataset.kunci = 1;
             k.classList.add('terpasang');
-            k.style.zIndex = 4;
+            k.style.zIndex = id === 'daun' ? 2 : 4; // tajuk di bawah bunga & buah
             zonaEl[id].classList.add('terisi');
             a.Bunyi.pas();
             const ucapan = a.bicara({ s: 'nenek', t: a.naskah.bagian[id] });

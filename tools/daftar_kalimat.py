@@ -24,7 +24,7 @@ def utama():
     hasil = []
     for baris in naskah.splitlines():
         kolom = [k.strip() for k in baris.strip().strip('|').split('|')]
-        if len(kolom) != 3 or kolom[1] not in ('Nenek', 'Justin'):
+        if len(kolom) != 3 or kolom[1] not in ('Nenek', 'Justin', 'Ayah', 'Ibu', 'Pencerita'):
             continue
         tokoh = kolom[1].lower()
         teks = re.sub(r'\*\*\(baru[^)]*\)\*\*', '', kolom[2])  # buang tanda "(baru)"
@@ -36,7 +36,7 @@ def utama():
     (AKAR / 'tools' / 'kalimat.json').write_text(json.dumps(hasil, ensure_ascii=False, indent=1), encoding='utf-8')
     huruf = sum(len(k.split('|', 1)[1]) for k in hasil)
     print(f'{len(hasil)} kalimat, {huruf} huruf →', 'tools/kalimat.json')
-    for t in ('nenek', 'justin'):
+    for t in ('nenek', 'justin', 'ayah', 'ibu', 'pencerita'):
         print(' ', t, sum(1 for k in hasil if k.startswith(t + '|')))
 
 

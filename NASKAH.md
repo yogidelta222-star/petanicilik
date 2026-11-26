@@ -1,9 +1,24 @@
 # Naskah Suara Petani Cilik
 
-Semua kalimat yang direkam di ElevenLabs. Dua suara: **Nenek** dan **Justin**. Justin juga menjadi pencerita intro (memakai "aku/kami", sesuai naskah asli).
+Semua kalimat yang direkam di ElevenLabs. Lima suara: **Pencerita** (Kira), **Ayah** (Bram), **Ibu** (Selina), **Nenek** (Devi), dan **Justin** (Teddy Twinkle).
 Kalimat bertanda **(baru)** adalah tambahan agar permainan terasa hidup (pujian, "coba lagi", hitungan) — boleh dicoret bila tidak setuju.
 
-## A. Intro (Justin bercerita)
+## A0. Ruang keluarga & buku bergambar (revisi 26 Nov)
+
+| No | Tokoh | Kalimat |
+|---|---|---|
+| R1 | Pencerita | Pada suatu hari, Ayah, Ibu, dan Justin sedang duduk bersama di ruang keluarga. Justin terlihat sedang asyik melihat sebuah buku bergambar. Buku tersebut berisi berbagai gambar tanaman yang menarik perhatian Justin. Melihat Justin begitu tertarik, Ayah dan Ibu pun mengajak Justin untuk belajar bersama melalui buku bergambar tersebut. Mereka akan mengenalkan berbagai hal tentang tanaman, mulai dari cara menanam bibit, mengenal pupuk, cara menyiram dan merawat tanaman, hingga mengenal bagian-bagian tanaman serta buah yang sudah matang dan belum matang. Justin pun terlihat semakin bersemangat untuk membuka setiap halaman buku dan belajar bersama Ayah dan Ibu. |
+| R2 | Pencerita | Ayah dan Ibu mulai membacakan halaman pertama buku bergambar. Yuk, kita ikuti Justin belajar mengenal tanaman! |
+| R3 | Ibu | Justin, tahukah kamu bagaimana sebuah tanaman bisa tumbuh? Semuanya berawal dari bibit, lho! Untuk menanamnya, kita perlu menyiapkan tanah terlebih dahulu. Kemudian, buat lubang kecil, masukkan bibit ke dalamnya, dan tutup kembali dengan tanah. Nah, dari bibit kecil inilah tanaman akan mulai tumbuh. |
+| R4 | Ayah | Justin, agar tanaman tumbuh subur dan sehat, tanaman juga membutuhkan nutrisi. Salah satu caranya adalah dengan memberikan pupuk. Ada pupuk kompos yang dibuat dari daun-daun kering dan sisa bahan alami yang sudah membusuk. Pupuk ini membantu menyuburkan tanah dan memberikan nutrisi bagi tanaman. Wah, ternyata daun kering juga bisa bermanfaat, ya! |
+| R5 | Ibu | Setelah bibit ditanam, kita tidak boleh lupa merawatnya, Justin. Salah satunya dengan menyiram tanaman secara teratur. Untuk menyiramnya, kita bisa menggunakan teko penyiram tanaman. Caranya mudah, isi teko dengan air, lalu siramkan perlahan ke tanah di sekitar tanaman. Air sangat penting bagi tanaman agar bisa tumbuh dengan baik. Jadi, jangan lupa menyiram tanaman, ya! |
+| R6 | Ayah | Justin, coba lihat pohon apel ini! Pohon apel memiliki beberapa bagian yang saling membantu agar bisa tumbuh dengan baik. Di bagian bawah ada akar yang menyerap air dan nutrisi dari tanah. Kemudian, ada batang yang menopang pohon agar tetap berdiri tegak. Di sekitar batang tumbuh daun yang membantu pohon membuat makanan. Pohon apel juga memiliki bunga yang nantinya dapat berkembang menjadi buah. Nah, buah inilah yang bisa kita petik dan nikmati ketika sudah matang. Wah, ternyata setiap bagian pohon apel punya kegunaan masing-masing, ya! |
+| R7 | Ibu | Nah, Justin, sekarang coba perhatikan kedua buah ini! Warnanya berbeda, ya. Buah yang berwarna merah pada gambar ini sudah matang, sedangkan buah yang berwarna hijau belum matang. Buah yang sudah matang biasanya lebih siap untuk dipanen. Jadi, sebelum memetik buah, kita perlu memperhatikan apakah buah tersebut sudah matang atau belum. Menarik sekali, bukan? |
+| R8 | Pencerita | Setelah Ayah dan Ibu selesai menjelaskan isi buku bergambar, Justin kembali memperhatikan setiap gambar yang ada di dalam buku tersebut. Ia melihat kembali gambar bibit, pupuk, cara menyiram tanaman, bagian-bagian pohon apel, hingga buah yang sudah matang dan belum matang. Justin tampak senang karena sekarang ia sudah mengetahui banyak hal tentang tanaman. Saat Justin masih asyik melihat-lihat gambar tersebut bersama Ayah dan Ibu, tiba-tiba terdengar suara bel rumah berbunyi. |
+| R9 | Ibu | Sepertinya ada yang datang, Yah. Coba lihat dulu. |
+| R10 | Pencerita | Ayah pun membuka pintu. Seorang tukang pos datang mengantarkan sebuah surat. **(baru, penghubung ke adegan surat)** |
+
+## A. Intro (Justin bercerita) — A1 & A2 tidak dipakai lagi sejak revisi buku bergambar
 
 | No | Tokoh | Kalimat |
 |---|---|---|
